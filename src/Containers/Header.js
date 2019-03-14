@@ -28,17 +28,17 @@ class Header extends Component {
         <header className="header" id="header">
             <Navbar color="light" light expand="md">
                 <NavbarBrand href="/">Todo List</NavbarBrand>
-                <NavbarToggler onClick={this.toggle} />
+                {/* <NavbarToggler onClick={this.toggle} />
                 <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="ml-auto" navbar>
-                    <NavItem>
-                        <NavLink href="/components/">Sign In</NavLink>
-                    </NavItem>
-                    <NavItem>
-                        <NavLink href="https://github.com/reactstrap/reactstrap">Create Account</NavLink>
-                    </NavItem>
+                        <NavItem>
+                            <NavLink href="/components/">Sign In</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink href="https://github.com/reactstrap/reactstrap">Create Account</NavLink>
+                        </NavItem>
                     </Nav>
-                </Collapse>
+                </Collapse> */}
             </Navbar>
         </header>
         )

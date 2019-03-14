@@ -1,0 +1,17 @@
+.authForm {
+    max-width: 400px !important;
+    margin: 0 auto;
+}
+
+.authForm--labels {
+    text-align: left;
+}
+
+.authForm--buttons-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.authForm--buttons {
+    width: 90px;
+}

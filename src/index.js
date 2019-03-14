@@ -1,3 +1,8 @@
+// TODO
+
+// OPTIONAL
+// * Change border bottom under header in home
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
