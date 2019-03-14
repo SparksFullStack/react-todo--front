@@ -9,7 +9,7 @@ import AuthForm from '../Components/AuthForm';
 class Home extends Component {
     state = {
         authState: {
-            signin: true,
+            signin: false,
         }
     }
 

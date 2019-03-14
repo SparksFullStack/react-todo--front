@@ -63,6 +63,17 @@ class AuthForm extends Component {
             if (email) this.handleAlert('', false);
             if (password === "") this.handleAlert('Please enter your password', true);
             if (password !== "") this.handleAlert('', false);
+        } else if (formType === 'register') {
+            const email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.state.registerFormState.regEmail);
+            const password = this.state.registerFormState.regPassword;
+            const securityQuestion = this.state.registerFormState.regSecurity;
+
+            if (!email) this.handleAlert('Please enter a valid email address', true);
+            if (email) this.handleAlert('', false);
+            if (password === "") this.handleAlert('Please enter your password', true);
+            if (password !== "") this.handleAlert('', false);
+            if (securityQuestion === "") this.handleAlert('Please enter your security question', true);
+            if (securityQuestion !== "") this.handleAlert('', false);
         }
     }
 
@@ -100,7 +111,7 @@ class AuthForm extends Component {
                                         
                                     </FormGroup>
                                 </Form>
-                                <Button type="button" onClick={() => this.handleValidation('signin')} color="primary" className="authForm--button">Sign In</Button>
+                                <Button onClick={() => this.handleValidation('signin')} color="primary" className="authForm--button">Sign In</Button>
                                 <br />
                                 <a className="" href="#">Forgot password?</a>
                             </CardBody>
@@ -113,6 +124,9 @@ class AuthForm extends Component {
                         <Card className="authForm">
                             <CardBody>
                                 <CardTitle>Register</CardTitle>
+                                <Alert color="danger" isOpen={this.state.alertState.visible} toggle={this.handleAlert}>
+                                    {this.state.alertState.text}
+                                </Alert>
                                 <hr />
                                 <Form>
                                     <FormGroup row>
@@ -124,17 +138,17 @@ class AuthForm extends Component {
                                     <FormGroup row>
                                         <Label className="authForm--labels" for="register-pass" sm={12}>Password</Label>
                                         <Col sm={12}>
-                                            <Input onChange={this.handleUpdateFormState('registerFormState', 'password')} value={this.state.registerFormState.password} type="password" name="regPassword" id="register-pass" placeholder="enter your password..." bsSize="md" />
+                                            <Input onChange={this.handleUpdateFormState('registerFormState')} value={this.state.registerFormState.password} type="password" name="regPassword" id="register-pass" placeholder="enter your password..." bsSize="md" />
                                         </Col>
                                     </FormGroup>
                                     <FormGroup row>
                                         <Label className="authForm--labels" for="register-security" sm={12}>What was your mother's maiden name?</Label>
                                         <Col sm={12}>
-                                            <Input onChange={this.handleUpdateFormState('registerFormState', 'securityQuestion')} value={this.state.registerFormState.securityQuestion} type="text" name="regSecurity" id="register-security" placeholder="answer security question..." bsSize="md" />
+                                            <Input onChange={this.handleUpdateFormState('registerFormState')} value={this.state.registerFormState.securityQuestion} type="text" name="regSecurity" id="register-security" placeholder="answer security question..." bsSize="md" />
                                         </Col>
                                     </FormGroup>
                                 </Form>
-                                <Button color="primary" className="authForm--button">Register</Button>
+                                <Button onClick={() => this.handleValidation('register')} color="primary" className="authForm--button">Register</Button>
                             </CardBody>
                         </Card>
 
