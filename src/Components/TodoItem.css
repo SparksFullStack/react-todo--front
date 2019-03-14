@@ -1,6 +1,12 @@
 .todoList--items {
-    /* text-align: left; */
+    text-align: left;
     margin-bottom: 10px !important;
+    display: flex !important;
+    justify-content: space-between;
+}
+
+.todoList--items > p {
+    margin: 0;
 }
 
 .todoList--items__completed {
@@ -10,8 +16,30 @@
 .todoList--items--button-container {
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .todoList--items--buttons {
     width: 100px;
+}
+
+.todoList--icons {
+    display: flex;
+    justify-content: flex-end;
+    width: 100px;
+    align-items: center;
+}
+
+.todoList--icons > i {
+    transition: color .2s;
+    transform: scale(1.5);
+    margin-left: 15px;
+}
+
+.todoList--icons--check:hover {
+    color: green;
+}
+
+.todoList--icons--trash:hover {
+    color: red;
 }
