@@ -8,11 +8,15 @@ import AuthForm from '../Components/AuthForm';
 
 class Home extends Component {
     state = {
-        signin: false,
+        authState: {
+            signin: true,
+        }
     }
 
     handleChangeFormType = () => {
-        this.setState({ signin: !this.state.signin })
+        const newState = Object.assign({}, this.state.authState);
+        newState.signin = !this.state.authState.signin;
+        this.setState({ authState: newState });
     }
 
     render() {
@@ -20,7 +24,7 @@ class Home extends Component {
             <Container className="home">
                 <h2 className="home--header">Todo List</h2>
                 {!this.props.user.isLoggedIn ?
-                        <AuthForm signin={this.state.signin} handleChangeFormType={this.handleChangeFormType} />
+                        <AuthForm signin={this.state.authState.signin} handleChangeFormType={this.handleChangeFormType} />
                     :
                         <h1>Add other stuff here</h1>
                 }
