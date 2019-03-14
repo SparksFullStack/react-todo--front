@@ -5,6 +5,7 @@ import { Container } from 'reactstrap';
 import { Route } from 'react-router-dom';
 
 import AuthForm from '../Components/AuthForm';
+import TodoList from './TodoList.js';
 
 class Home extends Component {
     state = {
@@ -26,7 +27,7 @@ class Home extends Component {
                 {!this.props.user.isLoggedIn ?
                         <AuthForm signin={this.state.authState.signin} handleChangeFormType={this.handleChangeFormType} />
                     :
-                        <h1>Add other stuff here</h1>
+                        <TodoList />
                 }
             </Container>
         )

@@ -1,7 +1,7 @@
 // * TODO
 // Add form validation
 // Implement forgot password
-// Dispatch actions with login/register
+// Dispatch actions with login/register and redirect
 // Add alerts for incorrect email/password
 
 // * OPTIONAL 
