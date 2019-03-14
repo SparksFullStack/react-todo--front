@@ -23,7 +23,7 @@ class Home extends Component {
     render() {
         return (
             <Container className="home">
-                <h2 className="home--header">Todo List</h2>
+                <h2 className="home--header">To-Do List</h2>
                 {!this.props.user.isLoggedIn ?
                         <AuthForm signin={this.state.authState.signin} handleChangeFormType={this.handleChangeFormType} />
                     :

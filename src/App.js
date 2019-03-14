@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Route } from 'react-router-dom';
 
-import Header from './Containers/Header';
+import Header from './Components/Header';
 import Home from './Containers/Home';
 
 class App extends Component {

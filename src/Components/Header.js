@@ -27,7 +27,7 @@ class Header extends Component {
         return (
         <header className="header" id="header">
             <Navbar color="light" light expand="md">
-                <NavbarBrand href="/">Todo List</NavbarBrand>
+                <NavbarBrand href="/">To-Do List</NavbarBrand>
                 {/* <NavbarToggler onClick={this.toggle} />
                 <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="ml-auto" navbar>
