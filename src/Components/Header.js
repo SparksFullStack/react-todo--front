@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
     Collapse,
     Navbar,
@@ -27,18 +28,7 @@ class Header extends Component {
         return (
         <header className="header" id="header">
             <Navbar color="light" light expand="md">
-                <NavbarBrand href="/">To-Do List</NavbarBrand>
-                {/* <NavbarToggler onClick={this.toggle} />
-                <Collapse isOpen={this.state.isOpen} navbar>
-                    <Nav className="ml-auto" navbar>
-                        <NavItem>
-                            <NavLink href="/components/">Sign In</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink href="https://github.com/reactstrap/reactstrap">Create Account</NavLink>
-                        </NavItem>
-                    </Nav>
-                </Collapse> */}
+                <Link className='navbar-brand' to="/">To-Do List</Link>
             </Navbar>
         </header>
         )
