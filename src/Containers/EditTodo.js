@@ -15,6 +15,7 @@ import {
     Form,
 } from 'reactstrap';
 import { UPDATE_TODO } from '../Store/actions';
+import { dispatch } from 'rxjs/internal/observable/range';
 
 class EditTodo extends Component {
     state = {
@@ -25,7 +26,7 @@ class EditTodo extends Component {
 
     handleRedirect = () => {
         const { taskName, taskContent, completed, id } = this.props.location.state;
-        if (this.state.redirect) {
+        if (!this.props.location.state || this.state.redirect) {
             const newState = this.props.location.state;
             newState.taskName = this.state.newTaskName;
             newState.taskContent = this.state.newTaskContent;
@@ -65,8 +66,12 @@ class EditTodo extends Component {
     }
 
     handleSubmitTask = () => {
-        // call the edit action
+        const newState = this.props.location.state;
+        newState.taskName = this.state.newTaskName;
+        newState.taskContent = this.state.newTaskContent;
+
         this.setState({ redirect: true });
+        this.props.updateTodo(newState); 
     }
 
     render() {
@@ -78,4 +83,10 @@ class EditTodo extends Component {
     }
 }
 
-export default connect()(EditTodo);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        updateTodo: (task) => dispatch({ type: UPDATE_TODO, payload: task }),
+    }
+}
+
+export default connect(null, mapDispatchToProps)(EditTodo);

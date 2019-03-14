@@ -1,6 +1,8 @@
 import {
     COMPLETE_TODO, 
     DELETE_TODO,
+    UPDATE_TODOm,
+    UPDATE_TODO
 } from './actions';
 
 const initialState = {
@@ -33,6 +35,17 @@ const reducer = (state = initialState, action) => {
                 }
             });
             return deleteTodoState;
+        case UPDATE_TODO:
+            
+            const updateTodoState = Object.assign({}, state);
+            updateTodoState.todoList.find(task => {
+                if (task.id === action.payload.id) {
+                    console.log(task);
+                    task = action.payload;
+                }
+            });
+
+            return updateTodoState;
         default:
             return state;
     }

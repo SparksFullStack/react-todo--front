@@ -58,7 +58,6 @@ class ViewTodo extends Component {
     }
 
     render() {
-        console.log(this.props.location.state);
         return (
             <section className="viewTodo container">
                 {this.handleRedirect()}
