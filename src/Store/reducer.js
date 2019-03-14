@@ -1,7 +1,6 @@
 import {
     COMPLETE_TODO, 
     DELETE_TODO,
-    UPDATE_TODOm,
     UPDATE_TODO
 } from './actions';
 
@@ -30,7 +29,7 @@ const reducer = (state = initialState, action) => {
         case DELETE_TODO:
             const deleteTodoState = Object.assign({}, state);
             deleteTodoState.todoList.forEach((task, index) => {
-                if (task.id !== action.payload) {
+                if (task.id === action.payload) {
                     deleteTodoState.todoList.splice(index, 1);
                 }
             });

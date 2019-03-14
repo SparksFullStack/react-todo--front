@@ -44,10 +44,6 @@ class TodoList extends Component {
         })
     }
 
-    handleMarkComplete = () => {
-
-    }
-
     render() {
         return (
             <section className="todoList">
