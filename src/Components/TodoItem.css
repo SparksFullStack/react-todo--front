@@ -10,7 +10,7 @@
 }
 
 .todoList--items__completed {
-    text-decoration: strikethrough;
+    text-decoration: line-through;
 }
 
 .todoList--items--button-container {
