@@ -1,5 +1,9 @@
 const initialState = {
-    todoList: [{ taskName: 'example task', taskContent: 'example content'}],
+    todoList: [
+        { taskName: 'example task', taskContent: 'example content'},
+        { taskName: 'example task', taskContent: 'example content'},
+        { taskName: 'example task', taskContent: 'example content'}
+    ],
     user: {
         isLoggedIn: true,
     },

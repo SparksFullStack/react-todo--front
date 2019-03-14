@@ -3,20 +3,6 @@
     margin: 0 auto;
 }
 
-.todoList--items {
-    margin-top: 10px;
-    /* text-align: left; */
-}
-
-.todoList--items__completed {
-    text-decoration: strikethrough;
-}
-
-.todoList--items--button-container {
-    display: flex;
-    justify-content: space-around;
-}
-
-.todoList--items--buttons {
-    width: 100px;
+.todoList--cardBody {
+    padding-bottom: 10px !important;
 }

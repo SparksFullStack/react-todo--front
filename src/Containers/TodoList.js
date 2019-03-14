@@ -18,6 +18,8 @@ import {
     Row
 } from 'reactstrap';
 
+import TodoItem from '../Components/TodoItem.js';
+
 class TodoList extends Component {
     constructor(props){
         super(props);
@@ -27,23 +29,21 @@ class TodoList extends Component {
         }
     }
 
+    renderTodos = () => {
+        return this.props.todoList.map((task, index) => {
+            return <TodoItem task={task} key={index} />
+        })
+    }
+
     render() {
         return (
             <section className="todoList">
                 <Card className="todoList--card">
-                    <CardBody>
+                    <CardBody className="todoList--cardBody">
                         <CardTitle>My To-Do's</CardTitle>
                         <hr />
-                        <ListGroup>
-                            <ListGroupItem className="todoList--items">
-                                <p>Todo number 1</p>
-                                <div className="todoList--items--button-container">
-                                    <Button outline className="todoList--items--buttons" color="success">Complete</Button>
-                                    <Button outline className="todoList--items--buttons" color="primary">View</Button>
-                                </div>
-                            </ListGroupItem>
-                            <ListGroupItem className="todoList--items">Todo number 2</ListGroupItem>
-                            <ListGroupItem className="todoList--items">Todo number 3</ListGroupItem>
+                        <ListGroup className="todoList--list">
+                            {this.renderTodos()}
                         </ListGroup>
                     </CardBody>
                 </Card>
@@ -52,4 +52,10 @@ class TodoList extends Component {
     }
 }
 
-export default connect()(TodoList);
+const mapStateToProps = (state) => {
+    return {
+        todoList: state.todoList
+    }
+}
+
+export default connect(mapStateToProps)(TodoList);
