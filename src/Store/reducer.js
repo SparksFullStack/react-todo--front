@@ -1,5 +1,5 @@
 import {
-    COMPLETE_TODO,
+    COMPLETE_TODO, DELETE_TODO,
 } from './actions';
 
 const initialState = {
@@ -24,10 +24,17 @@ const reducer = (state = initialState, action) => {
                 }
             }
             return completeTodoState;
+        case DELETE_TODO:
+            const deleteTodoState = Object.assign({}, state);
+            deleteTodoState.todoList.forEach((task, index) => {
+                if (task.id !== action.payload) {
+                    deleteTodoState.todoList.splice(index, 1);
+                }
+            });
+            return deleteTodoState;
         default:
             return state;
     }
-    console.log(state);
 }
 
 export default reducer;

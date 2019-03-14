@@ -1,5 +1,6 @@
 // * TODO
-// Dispatch actions for completing and deleting todos
+// Dispatch actions for deleting todos
+// 
 
 import React, { Component } from 'react';
 import './TodoItem.css';
@@ -8,9 +9,12 @@ import {
     Button
 } from 'reactstrap';
 
+import { connect } from 'react-redux';
+
 class TodoItem extends Component {
     state = {
         taskComplete: this.props.task.completed,
+        deleted: false
     }
 
     handleCompleteTask = () => {
@@ -18,9 +22,14 @@ class TodoItem extends Component {
         this.props.completeTodo(this.props.task);
     }
 
+    handleDeleteTask = () => {
+        this.setState({ deleted: true });
+        this.props.deleteTodo(this.props.task.id);
+    }
+
     render() {
         return (
-            <ListGroupItem className="todoList--items">
+            <ListGroupItem className={!this.state.deleted ? "todoList--items" : "todoList--items__deleted"}>
                 <p className={this.state.taskComplete ? "todoList--items__completed" : ""}>{this.props.task.taskName}</p>
                 {/* <div className="todoList--items--button-container">
                     <Button outline className="todoList--items--buttons" color="success">Complete</Button>
@@ -28,7 +37,7 @@ class TodoItem extends Component {
                 </div> */}
                 <div className="todoList--icons">
                     <i className="far fa-check-square todoList--icons--check" onClick={this.handleCompleteTask}/>
-                    <i className="fas fa-trash todoList--icons--trash" />
+                    <i className="fas fa-trash todoList--icons--trash" onClick={this.handleDeleteTask}/>
                 </div>
             </ListGroupItem>
         )

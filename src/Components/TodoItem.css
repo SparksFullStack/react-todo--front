@@ -3,6 +3,7 @@
     margin-bottom: 10px !important;
     display: flex !important;
     justify-content: space-between;
+    transition: display .2s;
 }
 
 .todoList--items > p {
@@ -11,6 +12,10 @@
 
 .todoList--items__completed {
     text-decoration: line-through;
+}
+
+.todoList--items__deleted {
+    display: none !important;
 }
 
 .todoList--items--button-container {

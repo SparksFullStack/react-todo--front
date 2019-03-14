@@ -7,7 +7,10 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import './TodoList.css';
-import { COMPLETE_TODO } from '../Store/actions';
+import { 
+    COMPLETE_TODO,
+    DELETE_TODO,
+ } from '../Store/actions';
 
 import {
     Card, 
@@ -32,7 +35,12 @@ class TodoList extends Component {
 
     renderTodos = () => {
         return this.props.todoList.map((task, index) => {
-            return <TodoItem task={task} key={index} completeTodo={this.props.completeTodo} />
+            return <TodoItem 
+                        task={task}     
+                        key={index} 
+                        completeTodo={this.props.completeTodo} 
+                        deleteTodo={this.props.deleteTodo}
+                    />
         })
     }
 
@@ -65,7 +73,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        completeTodo: (task) => dispatch({ type: COMPLETE_TODO, payload: task })
+        completeTodo: (task) => dispatch({ type: COMPLETE_TODO, payload: task }),
+        deleteTodo: (taskID) => dispatch({ type:DELETE_TODO, payload: taskID }), 
     }
 }
 
