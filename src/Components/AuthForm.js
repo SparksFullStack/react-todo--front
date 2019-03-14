@@ -1,3 +1,12 @@
+// * TODO
+// Add form validation
+// Implement forgot password
+// Dispatch actions with login/register
+
+// * OPTIONAL 
+// Add specific password criteria
+// Add double password with error checking
+
 import React, { Component } from 'react';
 import "./AuthForm.css";
 import { Col, Form, FormGroup, Label, Input, Card, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'reactstrap';
@@ -16,7 +25,7 @@ class AuthForm extends Component {
                                     <FormGroup row>
                                         <Label className="authForm--labels" for="signin-email" sm={12}>Email</Label>
                                         <Col sm={12}>
-                                            <Input type="email" name="signin-email" id="signin-email" placeholder="Enter your email..." bsSize="md" />
+                                            <Input type="email" name="signin-email" id="signin-email" placeholder="enter your email..." bsSize="md" />
                                         </Col>
                                     </FormGroup>
                                     <FormGroup row>
@@ -39,13 +48,19 @@ class AuthForm extends Component {
                                     <FormGroup row>
                                         <Label className="authForm--labels" for="signin-email" sm={12}>Email</Label>
                                         <Col sm={12}>
-                                            <Input type="email" name="signin-email" id="signin-email" placeholder="Enter your email..." bsSize="md" />
+                                            <Input type="email" name="signin-email" id="signin-email" placeholder="enter your email..." bsSize="md" />
                                         </Col>
                                     </FormGroup>
                                     <FormGroup row>
                                         <Label className="authForm--labels" for="signin-pass" sm={12}>Password</Label>
                                         <Col sm={12}>
                                             <Input type="password" name="signin-password" id="signin-pass" placeholder="enter your password..." bsSize="md" />
+                                        </Col>
+                                    </FormGroup>
+                                    <FormGroup row>
+                                        <Label className="authForm--labels" for="signin-pass" sm={12}>What was your mother's maiden name?</Label>
+                                        <Col sm={12}>
+                                            <Input type="password" name="signin-password" id="signin-pass" placeholder="answer security question..." bsSize="md" />
                                         </Col>
                                     </FormGroup>
                                 </Form>
