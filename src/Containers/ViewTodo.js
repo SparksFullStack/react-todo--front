@@ -12,8 +12,8 @@ import {
 class ViewTodo extends Component {
     render() {
         return (
-            <section className="viewTodo">
-                <h2>View To-Do</h2>
+            <section className="viewTodo container">
+                <h2 className="viewTodo--header">View To-Do</h2>
                 <Card className="viewTodo--card">
                     <CardBody>
                         <CardTitle className="viewTodo--header">To-Do Title</CardTitle>
