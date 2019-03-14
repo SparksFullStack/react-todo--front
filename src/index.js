@@ -2,6 +2,7 @@
 
 // OPTIONAL
 // * Change border bottom under header in home
+// * Add double password with error checking
 
 import React from 'react';
 import ReactDOM from 'react-dom';

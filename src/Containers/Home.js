@@ -8,7 +8,7 @@ import AuthForm from '../Components/AuthForm';
 
 class Home extends Component {
     state = {
-        signin: true,
+        signin: false,
     }
 
     handleChangeFormType = () => {
@@ -20,9 +20,9 @@ class Home extends Component {
             <Container className="home">
                 <h2 className="home--header">Todo List</h2>
                 {!this.props.user.isLoggedIn ?
-                    <AuthForm signin={this.state.signin}/>
+                        <AuthForm signin={this.state.signin} handleChangeFormType={this.handleChangeFormType} />
                     :
-                    <h1>Add other stuff here</h1>
+                        <h1>Add other stuff here</h1>
                 }
             </Container>
         )
