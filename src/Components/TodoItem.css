@@ -5,7 +5,7 @@
     justify-content: space-between;
 }
 
-.todoList--items > p {
+.todoList--items > a {
     margin: 0;
 }
 
