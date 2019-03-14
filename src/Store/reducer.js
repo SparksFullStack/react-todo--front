@@ -1,7 +1,8 @@
 import {
     COMPLETE_TODO, 
     DELETE_TODO,
-    UPDATE_TODO
+    UPDATE_TODO,
+    ADD_TODO,
 } from './actions';
 
 const initialState = {
@@ -13,6 +14,7 @@ const initialState = {
     user: {
         isLoggedIn: true,
     },
+    nextTaskID: 3
 }
 
 const reducer = (state = initialState, action) => {
@@ -45,6 +47,11 @@ const reducer = (state = initialState, action) => {
             });
 
             return updateTodoState;
+        case ADD_TODO:
+            const addTodoState = Object.assign({}, state);
+            addTodoState.todoList.push(action.payload);
+            addTodoState.nextTaskID++;
+            return addTodoState;
         default:
             return state;
     }
