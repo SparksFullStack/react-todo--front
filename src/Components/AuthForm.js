@@ -113,7 +113,7 @@ class AuthForm extends Component {
                                 </Form>
                                 <Button onClick={() => this.handleValidation('signin')} color="primary" className="authForm--button">Sign In</Button>
                                 <br />
-                                <a className="" href="#">Forgot password?</a>
+                                <a className="authForm--forgot-pass" href="#">Forgot password?</a>
                             </CardBody>
                         </Card>
                         

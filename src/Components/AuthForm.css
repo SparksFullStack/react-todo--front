@@ -12,6 +12,11 @@
     margin-bottom: 10px;
 }
 
+.authForm--forgot-pass {
+    display: inline-block;
+    margin-top: 10px;
+}
+
 .authForm--change-type {
     font-size: .8em;
     margin-top: 20px;

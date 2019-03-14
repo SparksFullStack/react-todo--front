@@ -5,7 +5,7 @@ const initialState = {
         { taskName: 'example task', taskContent: 'example content'}
     ],
     user: {
-        isLoggedIn: true,
+        isLoggedIn: false,
     },
 }
 
