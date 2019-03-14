@@ -1,6 +1,8 @@
 const initialState = {
     todoList: [{ taskName: 'example task', taskContent: 'example content'}],
-    user: false,
+    user: {
+        isLoggedIn: false,
+    },
 }
 
 const reducer = (state = initialState, action) => {

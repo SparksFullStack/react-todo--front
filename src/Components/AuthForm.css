@@ -7,16 +7,22 @@
     text-align: left;
 }
 
-/* .authForm--buttons-container {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.authForm--buttons {
-    width: 90px;
-} */
-
 .authForm--button {
     width: 100%;
     margin-bottom: 10px;
+}
+
+.authForm--change-type {
+    font-size: .8em;
+    margin-top: 20px;
+}
+
+.authForm--change-type > span {
+    color: #007bff;
+    cursor: pointer;
+}
+
+.authForm--change-type > span:hover {
+    color: #0056b3;
+    text-decoration: underline;
 }
