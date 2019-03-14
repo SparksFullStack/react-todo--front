@@ -1,3 +1,6 @@
+// * TODO
+// Edit text styling
+
 //* OPTIONAL
 // Add status of todo
 // Add icons instead of buttons
@@ -55,9 +58,10 @@ class ViewTodo extends Component {
     }
 
     render() {
+        console.log(this.props.location.state);
         return (
             <section className="viewTodo container">
-            {this.handleRedirect()}
+                {this.handleRedirect()}
             </section>
         )
     }
