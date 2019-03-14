@@ -3,7 +3,6 @@
     margin-bottom: 10px !important;
     display: flex !important;
     justify-content: space-between;
-    transition: display .2s;
 }
 
 .todoList--items > p {
