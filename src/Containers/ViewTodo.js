@@ -16,6 +16,11 @@ class ViewTodo extends Component {
         redirect: false,
     }
 
+    handleDeleteTodo = () => {
+        this.setState({ redirect: true });
+        this.props.deleteTodo(this.props.location.state.id);
+    }
+
     handleRedirect = () => {
         const { taskName, taskContent, completed, id } = this.props.location.state;
 
@@ -42,10 +47,6 @@ class ViewTodo extends Component {
         }
     }
 
-    handleDeleteTodo = () => {
-        this.setState({ redirect: true });
-    }
-
     render() {
         return (
             <section className="viewTodo container">
@@ -67,4 +68,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect()(ViewTodo);
+export default connect(null, mapDispatchToProps)(ViewTodo);
