@@ -1,5 +1,6 @@
 import {
-    COMPLETE_TODO, DELETE_TODO,
+    COMPLETE_TODO, 
+    DELETE_TODO,
 } from './actions';
 
 const initialState = {

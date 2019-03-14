@@ -1,5 +1,4 @@
 // * TODO
-// Add mouseover for icons
 
 // * OPTIONAL
 // Add animations for deleting and completing todos
@@ -8,10 +7,7 @@ import React, { Component } from 'react';
 import './TodoItem.css';
 import {
     ListGroupItem,
-    Button
 } from 'reactstrap';
-
-import { connect } from 'react-redux';
 
 class TodoItem extends Component {
     state = {
