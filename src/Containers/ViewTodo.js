@@ -1,6 +1,10 @@
+//* OPTIONAL
+// Add status of todo
+// Add icons instead of buttons
+
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import './ViewTodo.css';
 import {
     Card, 
@@ -37,7 +41,10 @@ class ViewTodo extends Component {
                             <CardText className="viewTodo--content">{taskContent}</CardText>
                             <hr/>
                             <div className="viewTodo--buttons-container">
-                                <Button color="primary" className="viewTodo--buttons">Edit</Button>
+                                <Link to={{
+                                    pathname: '/edit_todo',
+                                    state: this.props.location.state
+                                }} className="btn btn-primary viewTodo--buttons">Edit</Link>
                                 <Button onClick={this.handleDeleteTodo} outline color="danger" className="viewTodo--buttons">Delete</Button>
                             </div>
                         </CardBody>
@@ -55,12 +62,6 @@ class ViewTodo extends Component {
         )
     }
 }
-
-// const mapStateToProps = (state) => {
-//     return {
-//         todoItem: 
-//     }
-// }
 
 const mapDispatchToProps = (dispatch) => {
     return {
