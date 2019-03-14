@@ -1,13 +1,14 @@
 .viewTodo--card {
-    max-width: 600px !important;
+    max-width: 500px !important;
     margin: 0 auto;
 }
 
 .viewTodo--buttons-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .viewTodo--buttons {
     width: 97px !important;
+    margin: 0 10px;
 }

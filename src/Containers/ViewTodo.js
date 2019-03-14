@@ -22,7 +22,6 @@ class ViewTodo extends Component {
                         <hr/>
                         <div className="viewTodo--buttons-container">
                             <Button color="primary" className="viewTodo--buttons">Edit</Button>
-                            <Button color="success" className="viewTodo--buttons">Complete</Button>
                             <Button outline color="danger" className="viewTodo--buttons">Delete</Button>
                         </div>
                     </CardBody>
