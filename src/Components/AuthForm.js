@@ -20,13 +20,12 @@ const AuthForm = props => {
                         <Col sm={12}>
                             <Input type="password" name="signin-password" id="signin-pass" placeholder="enter your password..." bsSize="md" />
                         </Col>
-                        <a href="#">Forgot password?</a>
+                        
                     </FormGroup>
                 </Form>
-                <div className="authForm--buttons-container">
-                    <Button className="authForm--buttons">Sign In</Button>
-                    <Button className="authForm--buttons">Register</Button>
-                </div>
+                <Button color="primary" className="authForm--button">Sign In</Button>
+                <br />
+                <a className="" href="#">Forgot password?</a>
             </CardBody>
         </Card>
     )
