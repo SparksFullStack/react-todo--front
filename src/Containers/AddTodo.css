@@ -1,18 +1,22 @@
 .addTodo--header {
-    margin: 30px 0;
+    margin-top: 30px;
     padding-bottom: 10px;
-    border-bottom: 1px solid grey;
 }
 
 .addTodo--addons > span {
     width: 90px;
 }
 
-.addTodo--card {
+.addTodo--card,
+.addTodo--breadcrumbs {
     max-width: 500px !important;
     margin: 0 auto;
 }
 
 .addTodo--textarea {
     height: 200px !important;
+}
+
+.addTodo--button {
+    width: 100%;
 }

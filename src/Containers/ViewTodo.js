@@ -13,6 +13,7 @@ import {
     Card, 
     CardBody,
     CardTitle,
+    CardSubtitle,
     CardText,
     Button,
     Breadcrumb,
@@ -45,7 +46,8 @@ class ViewTodo extends Component {
                     </Breadcrumb>
                     <Card className="viewTodo--card">
                         <CardBody>
-                            <CardTitle className="viewTodo--card-title">{taskName}</CardTitle>
+                            <CardTitle className="viewTodo--card-title h3">{taskName}</CardTitle>
+                            <CardSubtitle style={completed ? { color: "#28a745" } : { color: "#dc3545" }} className="h6">{completed ? "Complete" : "Incomplete"}</CardSubtitle>
                             <hr/>
                             <CardText className="viewTodo--content">{taskContent}</CardText>
                             <hr/>

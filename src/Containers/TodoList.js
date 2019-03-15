@@ -6,6 +6,7 @@
 
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './TodoList.css';
 import { 
     COMPLETE_TODO,
@@ -56,6 +57,8 @@ class TodoList extends Component {
                         <ListGroup className="todoList--list">
                             {this.renderTodos()}
                         </ListGroup>
+                        <hr />
+                        <Link to="/add_todo" className="btn btn-success todoList--button" color="success">Add new task</Link>
                     </CardBody>
                 </Card>
             </section>
