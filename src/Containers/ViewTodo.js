@@ -39,7 +39,7 @@ class ViewTodo extends Component {
             return (
                 <Fragment>
                     <h2 className="viewTodo--header">View To-Do</h2>
-                    <Breadcrumb className="section--breadcrumbs">
+                    <Breadcrumb className="viewTodo--breadcrumbs">
                         <BreadcrumbItem><Link to="/">Home</Link></BreadcrumbItem>
                         <BreadcrumbItem active>View To-Do</BreadcrumbItem>
                     </Breadcrumb>

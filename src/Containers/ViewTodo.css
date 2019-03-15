@@ -12,7 +12,8 @@
     margin-right: 80%;
 }
 
-.viewTodo--card {
+.viewTodo--card,
+.viewTodo--breadcrumbs {
     max-width: 500px !important;
     margin: 0 auto;
 }
@@ -26,3 +27,4 @@
     width: 97px !important;
     margin: 0 10px;
 }
+

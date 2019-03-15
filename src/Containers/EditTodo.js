@@ -13,6 +13,8 @@ import {
     InputGroupText, 
     Input,
     Form,
+    Breadcrumb,
+    BreadcrumbItem,
 } from 'reactstrap';
 import { UPDATE_TODO } from '../Store/actions';
 import { dispatch } from 'rxjs/internal/observable/range';
@@ -39,6 +41,10 @@ class EditTodo extends Component {
             return (
                 <Fragment>
                     <h2 className="editTodo--header">Edit To-Do</h2>
+                    <Breadcrumb className="editTodo--breadcrumbs">
+                        <BreadcrumbItem><Link to="/">Home</Link></BreadcrumbItem>
+                        <BreadcrumbItem active>Edit To-Do</BreadcrumbItem>
+                    </Breadcrumb>
                     <Card className="editTodo--card">
                         <CardBody>
                             <Form>
@@ -52,7 +58,7 @@ class EditTodo extends Component {
                                     <Input className="viewTodo--textarea" type="textarea" value={this.state.newTaskContent} onChange={this.handleUpdateTask('newTaskContent')} placeholder={taskContent} />
                                 </InputGroup>
                                 <hr/>
-                                <Button onClick={this.handleSubmitTask} color="success">Submit</Button>
+                                <Button className="editTodo--button" onClick={this.handleSubmitTask} color="success">Submit</Button>
                             </Form>
                         </CardBody>
                     </Card>
