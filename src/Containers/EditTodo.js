@@ -21,14 +21,19 @@ import { dispatch } from 'rxjs/internal/observable/range';
 
 class EditTodo extends Component {
     state = {
-        newTaskName: this.props.location.state.taskName,
-        newTaskContent: this.props.location.state.taskContent,
+        newTaskName: "",
+        newTaskContent: "",
         redirect: false,
     }
 
     handleRedirect = () => {
-        const { taskName, taskContent, completed, id } = this.props.location.state;
-        if (!this.props.location.state || this.state.redirect) {
+        
+        if (!this.props.location.state || !this.props.isLoggedIn) {
+            return <Redirect to={{
+                            pathname: "/",
+                        }}
+                    />
+        } else if (this.state.redirect) {
             const newState = this.props.location.state;
             newState.taskName = this.state.newTaskName;
             newState.taskContent = this.state.newTaskContent;
@@ -36,8 +41,11 @@ class EditTodo extends Component {
                             pathname: "/view_todo",
                             state: newState,
                         }}
-                    />
+                    /> 
+        
         } else {
+            const { taskName, taskContent, completed, id } = this.props.location.state;
+            this.setState({ newTaskName: taskName, newTaskContent: taskContent });
             return (
                 <Fragment>
                     <h2 className="editTodo--header">Edit To-Do</h2>
@@ -86,6 +94,12 @@ class EditTodo extends Component {
                 {this.handleRedirect()}
             </section>
         )
+    }
+}
+
+const mapStateToProps = (state) => {
+    return {
+        isLoggedIn: state.user.isLoggedIn
     }
 }
 

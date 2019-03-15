@@ -32,11 +32,10 @@ class ViewTodo extends Component {
     }
 
     handleRedirect = () => {
-        const { taskName, taskContent, completed, id } = this.props.location.state;
-
-        if (!this.props.location.state || this.state.redirect === true) {
+        if (!this.props.location.state || !this.props.isLoggedIn || this.state.redirect === true) {
             return <Redirect to="/" />
         } else {
+            const { taskName, taskContent, completed, id } = this.props.location.state;
             return (
                 <Fragment>
                     <h2 className="viewTodo--header">View To-Do</h2>
@@ -74,10 +73,16 @@ class ViewTodo extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        isLoggedIn: state.user.isLoggedIn,
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
         deleteTodo: (id) => dispatch({ type: DELETE_TODO, payload: id }),
     }
 }
 
-export default connect(null, mapDispatchToProps)(ViewTodo);
+export default connect(mapStateToProps, mapDispatchToProps)(ViewTodo);
