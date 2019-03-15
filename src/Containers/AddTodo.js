@@ -29,7 +29,7 @@ class AddTodo extends Component {
     }
 
     handleRedirect = () => {
-        if (this.state.redirect){
+        if (this.state.redirect || !this.props.isLoggedIn){
             return <Redirect to="/" />
         } else {
             return (
@@ -85,6 +85,7 @@ class AddTodo extends Component {
 const mapStateToProps = (state) => {
     return {
         id: state.nextTaskID,
+        isLoggedIn: state.user.isLoggedIn
     }
 }
 
