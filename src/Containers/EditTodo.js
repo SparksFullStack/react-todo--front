@@ -26,8 +26,14 @@ class EditTodo extends Component {
         redirect: false,
     }
 
+    componentDidMount() {
+        if ( this.props.location.state ) {
+            const { taskName, taskContent, completed, id } = this.props.location.state;
+            this.setState({ newTaskName: taskName, newTaskContent: taskContent });
+        }
+    }
+
     handleRedirect = () => {
-        
         if (!this.props.location.state || !this.props.isLoggedIn) {
             return <Redirect to={{
                             pathname: "/",
@@ -45,7 +51,6 @@ class EditTodo extends Component {
         
         } else {
             const { taskName, taskContent, completed, id } = this.props.location.state;
-            this.setState({ newTaskName: taskName, newTaskContent: taskContent });
             return (
                 <Fragment>
                     <h2 className="editTodo--header">Edit To-Do</h2>
