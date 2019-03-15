@@ -13,6 +13,11 @@
     text-decoration: line-through;
 }
 
+.todoList--items__completed:hover {
+    text-decoration: line-through !important;
+}
+
+
 .todoList--items__deleted {
     display: none !important;
 }
