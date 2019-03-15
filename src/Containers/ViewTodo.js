@@ -14,7 +14,9 @@ import {
     CardBody,
     CardTitle,
     CardText,
-    Button
+    Button,
+    Breadcrumb,
+    BreadcrumbItem,
 } from 'reactstrap';
 import { DELETE_TODO } from '../Store/actions';
 
@@ -37,6 +39,10 @@ class ViewTodo extends Component {
             return (
                 <Fragment>
                     <h2 className="viewTodo--header">View To-Do</h2>
+                    <Breadcrumb className="section--breadcrumbs">
+                        <BreadcrumbItem><Link to="/">Home</Link></BreadcrumbItem>
+                        <BreadcrumbItem active>View To-Do</BreadcrumbItem>
+                    </Breadcrumb>
                     <Card className="viewTodo--card">
                         <CardBody>
                             <CardTitle className="viewTodo--card-title">{taskName}</CardTitle>

@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import "./Home.css";
 import { connect } from 'react-redux';
 import { Container } from 'reactstrap';
 import { Route } from 'react-router-dom';
+import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 
 import AuthForm from '../Components/AuthForm';
 import TodoList from './TodoList.js';
@@ -22,14 +23,16 @@ class Home extends Component {
 
     render() {
         return (
-            <Container className="home">
-                <h2 className="home--header">To-Do List</h2>
-                {!this.props.user.isLoggedIn ?
-                        <AuthForm signin={this.state.authState.signin} handleChangeFormType={this.handleChangeFormType} />
-                    :
-                        <TodoList />
-                }
-            </Container>
+            <Fragment>
+                <Container className="home">
+                    <h2 className="home--header">To-Do List</h2>
+                    {!this.props.user.isLoggedIn ?
+                            <AuthForm signin={this.state.authState.signin} handleChangeFormType={this.handleChangeFormType} />
+                        :
+                            <TodoList />
+                    }
+                </Container>
+            </Fragment>
         )
     }
 }
