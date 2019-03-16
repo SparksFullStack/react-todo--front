@@ -12,7 +12,7 @@ const initialState = {
         { taskName: 'example task', taskContent: 'example content', completed: false, id: 2 }
     ],
     user: {
-        isLoggedIn: true,
+        isLoggedIn: false,
     },
     nextTaskID: 3
 }

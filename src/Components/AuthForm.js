@@ -10,6 +10,7 @@
 // Figure out uncontrolled component issue
 
 import React, { Component, Fragment } from 'react';
+import axios from 'axios';
 import "./AuthForm.css";
 import { 
     Col, 
@@ -63,6 +64,10 @@ class AuthForm extends Component {
             if (email) this.handleAlert('', false);
             if (password === "") this.handleAlert('Please enter your password', true);
             if (password !== "") this.handleAlert('', false);
+
+            if (this.handleAlert === ''){
+
+            }
         } else if (formType === 'register') {
             const email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.state.registerFormState.regEmail);
             const password = this.state.registerFormState.regPassword;
@@ -74,6 +79,10 @@ class AuthForm extends Component {
             if (password !== "") this.handleAlert('', false);
             if (securityQuestion === "") this.handleAlert('Please enter your security question', true);
             if (securityQuestion !== "") this.handleAlert('', false);
+
+            if (!this.state.alertState.visible){
+                this.handleSubmitRegistration(this.state.registerFormState.regEmail, password, securityQuestion);
+            }
         }
     }
 
@@ -82,6 +91,12 @@ class AuthForm extends Component {
         const newState = Object.assign({}, this.state[formType]);
         newState[name] = value;
         this.setState({[formType]: newState});
+    }
+
+    handleSubmitRegistration = (email, password, securityQuestionAnswer) => {
+        axios.post('http://localhost:3001/auth/register', { email, password, securityQuestionAnswer })
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
     }
 
     render() {
