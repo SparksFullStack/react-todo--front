@@ -95,7 +95,10 @@ class AuthForm extends Component {
 
     handleSubmitRegistration = (email, password, securityQuestionAnswer) => {
         axios.post('http://localhost:3001/auth/register', { email, password, securityQuestionAnswer })
-            .then(res => console.log(res))
+            .then(res => {
+                localStorage.setItem('JWT', res.data.JWT);
+                // need to redirect here
+            })
             .catch(err => console.log(err));
     }
 
