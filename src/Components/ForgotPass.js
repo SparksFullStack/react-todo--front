@@ -25,9 +25,9 @@ import {
 
 class ForgotPass extends Component {
     state = {
-        answerStatus: true,
+        answerStatus: false,
         securityQuestionAnswer: "",
-        email: "theatticus82@gmail.com",
+        email: "",
         error: {
             isError: false,
             errorText: "",
@@ -102,10 +102,11 @@ class ForgotPass extends Component {
         const { email, password } = this.state;
         axios.put('http://localhost:3001/auth/reset_pass', { email, password })
             .then(res => {
-                console.log(res.data);
+                this.props.handleSuccessAlert('Your password was successfully reset--please log in', true);
+                this.props.toggle();
             })
             .catch(err => {
-                console.warn(err);
+                this.setState({ error: { isError: true, errorText: "There was an error with your request, please check your answers and try again"}});
             })
     }
 

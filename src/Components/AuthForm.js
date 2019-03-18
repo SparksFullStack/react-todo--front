@@ -47,6 +47,10 @@ class AuthForm extends Component {
             },
             modalState: {
                 isOpen: false,
+            },
+            successAlert: {
+                visible: false,
+                text: "Default alert text"
             }
         }
     }
@@ -58,6 +62,16 @@ class AuthForm extends Component {
                 text: alertText
             }
         });
+    }
+
+    handleSuccessAlert = (alertText, visibleState) => {
+        console.log(alertText);
+        this.setState({
+            successAlert: {
+                visible: visibleState,
+                text: alertText
+            }
+        })
     }
 
     handleValidation = (formType) => {
@@ -133,6 +147,9 @@ class AuthForm extends Component {
                                 <Alert color="danger" isOpen={this.state.alertState.visible} toggle={this.handleAlert}>
                                     {this.state.alertState.text}
                                 </Alert>
+                                <Alert color="success" isOpen={this.state.successAlert.visible} toggle={this.handleSuccessAlert}>
+                                    {this.state.successAlert.text}
+                                </Alert>
                                 <hr />
                                 <Form>
                                     <FormGroup row>
@@ -152,7 +169,7 @@ class AuthForm extends Component {
                                 <Button onClick={() => this.handleValidation('signin')} color="primary" className="authForm--button">Sign In</Button>
                                 <br />
                                 <a className="authForm--forgot-pass" onClick={this.toggleModal} href="#">Forgot password?</a>
-                                <ForgotPass toggle={this.toggleModal} modalState={this.state.modalState} />
+                                <ForgotPass toggle={this.toggleModal} modalState={this.state.modalState} handleSuccessAlert={this.handleSuccessAlert} />
                             </CardBody>
                         </Card>
                         
