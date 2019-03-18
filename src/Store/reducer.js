@@ -5,15 +5,14 @@ import {
     ADD_TODO,
 } from './actions';
 
+// * TODO
+// Verify JWT and set the state accordingly
 const initialState = {
     todoList: [
         { taskName: 'example task', taskContent: 'example content', completed: false, id: 0 },
         { taskName: 'example task', taskContent: 'example content', completed: false, id: 1 },
         { taskName: 'example task', taskContent: 'example content', completed: false, id: 2 }
     ],
-    user: {
-        isLoggedIn: false,
-    },
     nextTaskID: 3
 }
 
