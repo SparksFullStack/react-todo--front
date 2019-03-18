@@ -15,7 +15,7 @@ class Home extends Component {
     state = {
         authState: {
             signin: true,
-        }
+        },
     }
 
     handleChangeFormType = () => {

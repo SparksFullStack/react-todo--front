@@ -25,6 +25,8 @@ import {
     Alert,
 } from 'reactstrap';
 
+import ForgotPass from './ForgotPass';
+
 class AuthForm extends Component {
     constructor(props) {
         super(props);
@@ -42,6 +44,9 @@ class AuthForm extends Component {
                 regEmail: "",
                 regPassword: "",
                 regSecurity: ""
+            },
+            modalState: {
+                isOpen: true,
             }
         }
     }
@@ -102,6 +107,10 @@ class AuthForm extends Component {
             .catch(err => console.log(err));
     }
 
+    toggleModal = () => {
+
+    }
+
     render() {
         return (
             <Fragment>
@@ -132,6 +141,7 @@ class AuthForm extends Component {
                                 <Button onClick={() => this.handleValidation('signin')} color="primary" className="authForm--button">Sign In</Button>
                                 <br />
                                 <a className="authForm--forgot-pass" href="#">Forgot password?</a>
+                                <ForgotPass toggle={this.toggleModal} modalState={this.state.modalState} />
                             </CardBody>
                         </Card>
                         
