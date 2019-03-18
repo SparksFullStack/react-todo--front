@@ -1,7 +1,7 @@
 // * TODO
-// Add alert for errors
-// Add reset password form
-// Add reset password logic
+
+// * OPTIONAL
+// Add double new password forms with input checking and alerts
 
 import React, { Component, Fragment } from 'react';
 import axios from 'axios';

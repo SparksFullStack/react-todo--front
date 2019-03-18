@@ -7,7 +7,6 @@
 // * OPTIONAL 
 // Add specific password criteria
 // Add double password with error checking
-// Figure out uncontrolled component issue
 
 import React, { Component, Fragment } from 'react';
 import axios from 'axios';

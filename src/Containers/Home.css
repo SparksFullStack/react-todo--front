@@ -3,3 +3,9 @@
     padding-bottom: 10px;
     border-bottom: 1px solid grey;
 }
+
+@media screen and (max-height: 580px) {
+    .home--header {
+        margin: 10px 0;
+    }
+}
