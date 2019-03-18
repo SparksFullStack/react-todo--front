@@ -108,7 +108,7 @@ class AuthForm extends Component {
     }
 
     toggleModal = () => {
-
+        this.setState({ modalState: { isOpen: !this.state.modalState.isOpen }});
     }
 
     render() {
@@ -140,7 +140,7 @@ class AuthForm extends Component {
                                 </Form>
                                 <Button onClick={() => this.handleValidation('signin')} color="primary" className="authForm--button">Sign In</Button>
                                 <br />
-                                <a className="authForm--forgot-pass" href="#">Forgot password?</a>
+                                <a className="authForm--forgot-pass" onClick={this.toggleModal} href="#">Forgot password?</a>
                                 <ForgotPass toggle={this.toggleModal} modalState={this.state.modalState} />
                             </CardBody>
                         </Card>
