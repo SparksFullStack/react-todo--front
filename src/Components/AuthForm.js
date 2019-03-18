@@ -46,7 +46,7 @@ class AuthForm extends Component {
                 regSecurity: ""
             },
             modalState: {
-                isOpen: true,
+                isOpen: false,
             }
         }
     }
@@ -70,8 +70,8 @@ class AuthForm extends Component {
             if (password === "") this.handleAlert('Please enter your password', true);
             if (password !== "") this.handleAlert('', false);
 
-            if (this.handleAlert === ''){
-
+            if (!this.state.alertState.visible){
+                this.handleSignIn(this.state.signinFormState.signinEmail, password);
             }
         } else if (formType === 'register') {
             const email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.state.registerFormState.regEmail);
@@ -99,6 +99,7 @@ class AuthForm extends Component {
     }
 
     handleSubmitRegistration = (email, password, securityQuestionAnswer) => {
+        console.log('test');
         axios.post('http://localhost:3001/auth/register', { email, password, securityQuestionAnswer })
             .then(res => {
                 localStorage.setItem('JWT', res.data.JWT);
@@ -106,6 +107,16 @@ class AuthForm extends Component {
             })
             .catch(err => console.log(err));
     }
+
+    handleSignIn = (email, password) => {
+        axios.post('http://localhost:3001/auth/login', { email, password })
+            .then(res => {
+                localStorage.setItem('JWT', res.data.JWT);
+            })
+            .catch(err => {
+                console.warn(err);
+            })
+    } 
 
     toggleModal = () => {
         this.setState({ modalState: { isOpen: !this.state.modalState.isOpen }});

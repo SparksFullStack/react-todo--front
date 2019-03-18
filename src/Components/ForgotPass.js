@@ -25,13 +25,14 @@ import {
 
 class ForgotPass extends Component {
     state = {
-        answerStatus: false,
+        answerStatus: true,
         securityQuestionAnswer: "",
-        email: "",
+        email: "theatticus82@gmail.com",
         error: {
             isError: false,
             errorText: "",
-        }
+        },
+        password: ""
     }
 
     handleRenderFormType = () => {
@@ -60,7 +61,24 @@ class ForgotPass extends Component {
                     </ModalFooter>
                 </Fragment>
             );
-        } else return <h1>idk bro</h1>
+        } else return (
+                <Fragment>
+                    <ModalHeader className="text-center" toggle={this.props.toggle}>Please enter your new password</ModalHeader>
+                    <ModalBody>
+                        <Form>
+                            <FormGroup row>
+                                <Label className="forgotPass--labels" for="resetPassInput" sm={12}>Please enter your new password</Label>
+                                <Col sm={12}>
+                                    <Input value={this.state.password} onChange={this.handleUpdateForm('password')} type="password" name="resetPassInput" id="resetPassInput" placeholder="enter your new password" bsSize="md" />
+                                </Col>
+                            </FormGroup>
+                        </Form>
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button className="w-100" color="primary" onClick={this.handleSubmitReset}>Reset Password</Button>
+                    </ModalFooter>
+                </Fragment>
+        )
     }
 
     handleUpdateForm = (formType) => event => {
@@ -78,6 +96,17 @@ class ForgotPass extends Component {
                 console.warn(err);
                 this.setState({ error: { isError: true, errorText: "There was an error with your request, please check your answers and try again"}});
             });
+    }
+
+    handleSubmitReset = () => {
+        const { email, password } = this.state;
+        axios.put('http://localhost:3001/auth/reset_pass', { email, password })
+            .then(res => {
+                console.log(res.data);
+            })
+            .catch(err => {
+                console.warn(err);
+            })
     }
 
     render() {
