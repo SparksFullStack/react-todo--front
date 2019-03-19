@@ -16,6 +16,7 @@ class Home extends Component {
         authState: {
             signin: true,
         },
+        redirect: false
     }
 
     handleChangeFormType = () => {
@@ -32,11 +33,15 @@ class Home extends Component {
             if (decoded) {
                 compToRender = <TodoList />;
             } else {
-                compToRender = <AuthForm signin={this.state.authState.signin} handleChangeFormType={this.handleChangeFormType} />;
+                compToRender = <AuthForm signin={this.state.authState.signin} handleChangeFormType={this.handleChangeFormType} handleRedirect={this.handleRedirect} />;
             };
         });
         
         return compToRender;
+    }
+
+    handleRedirect = () => {
+        this.setState({ redirect: true });
     }
 
     render() {

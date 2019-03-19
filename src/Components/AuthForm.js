@@ -116,7 +116,7 @@ class AuthForm extends Component {
         axios.post('http://localhost:3001/auth/register', { email, password, securityQuestionAnswer })
             .then(res => {
                 localStorage.setItem('JWT', res.data.JWT);
-                // need to redirect here
+                this.props.handleRedirect();
             })
             .catch(err => console.log(err));
     }
@@ -125,6 +125,7 @@ class AuthForm extends Component {
         axios.post('http://localhost:3001/auth/login', { email, password })
             .then(res => {
                 localStorage.setItem('JWT', res.data.JWT);
+                this.props.handleRedirect();
             })
             .catch(err => {
                 console.warn(err);
