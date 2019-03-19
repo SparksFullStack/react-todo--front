@@ -66,7 +66,7 @@ class TodoList extends Component {
                     </CardBody>
                 </Card>
 
-                <Button className="todoList--signout" outline color="primary"><Link to="/">Sign Out</Link></Button>
+                <Link to="/" onClick={this.handleSignout} className="todoList--signout btn btn-primary" outline color="primary">Sign Out</Link>
             </section>
         )
     }

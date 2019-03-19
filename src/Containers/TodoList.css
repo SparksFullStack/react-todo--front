@@ -19,16 +19,17 @@
     color: #fff !important;
 }
 
-.todoList--signout {
+.todoList--signout:link,
+.todoList--signout:visited {
     display: inline-block;
     margin-top: 10px;
+    text-decoration: none;
+    background-color: #fff !important;
+    color: #007bff !important;
 }
 
-.todoList--signout > a {
-    text-decoration: none;
-}
-
-.todoList--signout > a:hover {
-    text-decoration: none;
-    color: #fff;
+.todoList--signout:hover,
+.todoList--signout:active {
+    background-color: #007bff !important;
+    color: #fff !important;
 }
