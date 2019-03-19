@@ -34,7 +34,7 @@ class EditTodo extends Component {
     }
 
     handleRedirect = () => {
-        if (!this.props.location.state || !this.props.isLoggedIn) {
+        if (!this.props.location.state) {
             return <Redirect to={{
                             pathname: "/",
                         }}
@@ -104,7 +104,7 @@ class EditTodo extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        isLoggedIn: state.user.isLoggedIn
+
     }
 }
 

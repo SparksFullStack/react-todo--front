@@ -32,7 +32,7 @@ class ViewTodo extends Component {
     }
 
     handleRedirect = () => {
-        if (!this.props.location.state || !this.props.isLoggedIn || this.state.redirect === true) {
+        if (!this.props.location.state || this.state.redirect === true) {
             return <Redirect to="/" />
         } else {
             const { taskName, taskContent, completed, id } = this.props.location.state;
@@ -75,7 +75,7 @@ class ViewTodo extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        isLoggedIn: state.user.isLoggedIn,
+
     }
 }
 
