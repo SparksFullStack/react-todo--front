@@ -10,7 +10,7 @@
 .todoList--button {
     width: 100%;
     background-color: #fff !important;
-    color: black !important;
+    color: #28a745 !important;
     transition: background-color .2s, color .2s;
 }
 
