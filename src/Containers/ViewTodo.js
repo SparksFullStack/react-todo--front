@@ -8,6 +8,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
+import jsonwebtoken from 'jsonwebtoken';
 import './ViewTodo.css';
 import {
     Card, 
@@ -32,7 +33,14 @@ class ViewTodo extends Component {
     }
 
     handleRedirect = () => {
-        if (!this.props.location.state || this.state.redirect === true) {
+        let jwtStatus = false;
+        const JWT = localStorage.getItem('JWT');
+        const verifyJWT = jsonwebtoken.verify(JWT, process.env.REACT_APP_JWT_SECRET, (err, decoded) => {
+            if (err) return;
+            if (decoded) jwtStatus = true;
+        })
+
+        if (!this.props.location.state || this.state.redirect === true || !jwtStatus) {
             return <Redirect to="/" />
         } else {
             const { taskName, taskContent, completed, id } = this.props.location.state;

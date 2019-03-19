@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
+import jsonwebtoken from 'jsonwebtoken';
 import './EditTodo.css';
 import {
     Card, 
@@ -34,7 +35,14 @@ class EditTodo extends Component {
     }
 
     handleRedirect = () => {
-        if (!this.props.location.state) {
+        let jwtStatus = false;
+        const JWT = localStorage.getItem('JWT');
+        const verifyJWT = jsonwebtoken.verify(JWT, process.env.REACT_APP_JWT_SECRET, (err, decoded) => {
+            if (err) return;
+            if (decoded) jwtStatus = true;
+        })
+
+        if (!this.props.location.state || !jwtStatus) {
             return <Redirect to={{
                             pathname: "/",
                         }}
