@@ -47,6 +47,10 @@ class TodoList extends Component {
         })
     }
 
+    handleSignout = () => {
+        localStorage.removeItem('JWT');
+    }
+
     render() {
         return (
             <section className="todoList">
@@ -61,6 +65,8 @@ class TodoList extends Component {
                         <Link to="/add_todo" className="btn btn-success todoList--button" color="success">Add new task</Link>
                     </CardBody>
                 </Card>
+
+                <Button className="todoList--signout" outline color="primary"><Link to="/">Sign Out</Link></Button>
             </section>
         )
     }
